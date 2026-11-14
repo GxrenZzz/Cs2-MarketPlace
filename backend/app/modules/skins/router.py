@@ -1,27 +1,28 @@
 # first endpoint 
-
 from fastapi import FastAPI , Query , HTTPException , APIRouter
 from app.modules.skins.data import skins
+from app.modules.skins.schemas import SkinResponse
 router = APIRouter()
 
-@router.get("/skins")
-def get_skins(weapon : str | None = None,limit : int = Query(default=10,gt=0), offset : int = Query(default=0,ge=0)):
-  # if user doesnt provide skin name -> give every skin 
-  if weapon is None:
+@router.get("/skins",response_model=list[SkinResponse])   
+def get_skins(
+    weapon: str | None = None,
+    limit: int = Query(default=10, gt=0),
+    offset: int = Query(default=0, ge=0)
+):
     filtered_skins = skins
-  else:
-    filtered_skins = [skin for skin in skins if skin["weapon"] == weapon]
 
-  # PaginationLogic -> if user only needs limited skins 
-  if limit == 0 or offset == -1:
-    raise HTTPException(status_code=404,detail="Invalid pagination parameter")
-  
-  filtered_skins = filtered_skins[offset:limit+offset]
-  
+    if weapon:
+        filtered_skins = [
+            skin for skin in filtered_skins
+            if skin["weapon"] == weapon
+        ]
 
-  return filtered_skins
+    return filtered_skins[offset:offset + limit]
 
-@router.get("/skins/{skin_id}")
+
+
+@router.get("/skins/{skin_id}",response_model=SkinResponse)
 def get_uniue_skin(skin_id:int):
   skin = next((skin for skin in skins if skin["id"]== skin_id),None)
   if skin is None:
