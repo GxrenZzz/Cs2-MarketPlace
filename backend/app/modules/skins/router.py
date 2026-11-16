@@ -36,7 +36,7 @@ def create_skin(skin:SkinCreate):
     new_skin = skin.model_dump()
 
     # generating new_ids
-    new_id = max(skin["id"] for skin in skins) + 1 
+    new_id = max((skin["id"] for skin in skins),default=0) + 1 
 
     # adding id into the dict 
 
