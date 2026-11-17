@@ -1,12 +1,6 @@
 from pydantic import BaseModel , model_validator ,Field
 from enum import Enum
 
-class SkinResponse(BaseModel):
-  id:int
-  name:str
-  weapon:str
-  rarity:str
-  price:float
 
 class Rarity(str,Enum):
   CONSUMER = "Consumer"
@@ -49,3 +43,5 @@ class SkinRead(BaseModel):
   price:float
 
 
+class SkinUpdate(SkinCreate):
+  pass

@@ -1,49 +1,46 @@
 # first endpoint 
-from fastapi import FastAPI , Query , HTTPException , APIRouter ,status
-from app.modules.skins.data import skins
-from app.modules.skins.schemas import SkinResponse ,SkinCreate ,SkinRead
+from fastapi import APIRouter ,status , Depends 
+
+from .schemas import SkinCreate , SkinRead ,SkinUpdate 
+from .service import SkinService 
+from .dependencies import get_skin_service
+
 router = APIRouter() 
 
-@router.get("/skins",response_model=list[SkinResponse])   
-def get_skins(
-    weapon: str | None = None,
-    limit: int = Query(default=10, gt=0),
-    offset: int = Query(default=0, ge=0)
+
+@router.get("/skins" ,response_model=list[SkinRead])
+def get_all_skins(
+    service : SkinService = Depends(get_skin_service)
+    ):
+    return service.get_all_skins() 
+
+@router.get("/skins/{skin_id}",response_model=SkinRead)
+def get_skin(
+    skin_id:int,
+    service : SkinService = Depends(get_skin_service)
 ):
-    filtered_skins = skins
+    return service.get_skin(skin_id)
 
-    if weapon:
-        filtered_skins = [
-            skin for skin in filtered_skins
-            if skin["weapon"] == weapon
-        ]
+@router.post("/skins",response_model=SkinRead,status_code=status.HTTP_201_CREATED)
+def create_skin(
+    skin: SkinCreate,
+    service : SkinService = Depends(get_skin_service)
+):
+    return service.create_skin(skin)
 
-    return filtered_skins[offset:offset + limit]
+@router.put("/skins/{skin_id}",response_model=SkinRead)
+def update_skin(
+    skin_id:int,
+    skin:SkinUpdate,
+    service : SkinService = Depends(get_skin_service)
+):
+    return service.update_skin(skin_id,skin)
 
+@router.delete("/skins/{skin_id}",status_code=status.HTTP_204_NO_CONTENT)
+def delete_skin(
+    skin_id:int,
+    service : SkinService = Depends(get_skin_service)
+):
+    service.delete_skin(skin_id)
+    return None
 
-
-@router.get("/skins/{skin_id}",response_model=SkinResponse)
-def get_uniue_skin(skin_id:int):
-  skin = next((skin for skin in skins if skin["id"]== skin_id),None)
-  if skin is None:
-    raise HTTPException(status_code=404, detail="Skin Not Found")
-
-  return skin
-
-@router.post("/skins",response_model=SkinRead,status_code = status.HTTP_201_CREATED)
-def create_skin(skin:SkinCreate):
-    # converting incoming skin into a dict
-    new_skin = skin.model_dump()
-
-    # generating new_ids
-    new_id = max((skin["id"] for skin in skins),default=0) + 1 
-
-    # adding id into the dict 
-
-    new_skin["id"] = new_id
-
-    # appending the skin into the list 
-
-    skins.append(new_skin)
-
-    return new_skin 
