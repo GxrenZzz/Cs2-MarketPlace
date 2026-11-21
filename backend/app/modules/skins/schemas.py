@@ -1,5 +1,6 @@
-from pydantic import BaseModel , model_validator ,Field
 from enum import Enum
+
+from pydantic import BaseModel, Field, model_validator
 
 
 class Rarity(str,Enum):

@@ -1,9 +1,9 @@
 # first endpoint 
-from fastapi import APIRouter ,status , Depends 
+from fastapi import APIRouter, Depends, status
 
-from .schemas import SkinCreate , SkinRead ,SkinUpdate 
-from .service import SkinService 
 from .dependencies import get_skin_service
+from .schemas import SkinCreate, SkinRead, SkinUpdate
+from .service import SkinService
 
 router = APIRouter() 
 

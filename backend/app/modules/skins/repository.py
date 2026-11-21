@@ -1,4 +1,5 @@
-from .schemas import SkinCreate , SkinUpdate
+from .schemas import SkinCreate, SkinUpdate
+
 
 class InMemorySkinRepository:
 

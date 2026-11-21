@@ -1,5 +1,5 @@
-from .service import SkinService  
 from .repository import InMemorySkinRepository
+from .service import SkinService
 
 repository = InMemorySkinRepository()
 

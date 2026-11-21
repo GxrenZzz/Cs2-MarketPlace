@@ -1,24 +1,25 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
+from app.core.config import settings
+from app.core.errors import AppException
 from app.modules.skins.router import router
-from app.modules.skins.exceptions import AppException 
 
-app = FastAPI()
+app = FastAPI(debug=settings.DEBUG)
 
 app.include_router(router)
 
 
 @app.exception_handler(AppException)
-async def App_Handler(
+async def app_exception_handler(
     request: Request,
     exc:AppException
 ):
     return JSONResponse(
-       status_code= exc.error_code,
+       status_code= exc.code,
        content={
            "message" : exc.message,
-           "error_code":exc.error_code,
+           "code":exc.code,
            "details":exc.details
        }
     )

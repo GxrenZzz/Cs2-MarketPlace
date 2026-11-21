@@ -1,6 +1,8 @@
 import pytest
 from pydantic import ValidationError
-from app.modules.skins.schemas import SkinCreate,Rarity,Wear
+
+from app.modules.skins.schemas import Rarity, SkinCreate, Wear
+
 
 @pytest.mark.parametrize("value", [-0.0001, 1.0001])
 def test_invalid_values(value):

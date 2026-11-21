@@ -3,9 +3,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app
-from app.modules.skins.service import SkinService
-from app.modules.skins.repository import InMemorySkinRepository
 from app.modules.skins.dependencies import get_skin_service
+from app.modules.skins.repository import InMemorySkinRepository
+from app.modules.skins.service import SkinService
 
 
 @pytest.fixture

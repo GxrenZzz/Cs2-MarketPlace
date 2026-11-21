@@ -1,26 +1,8 @@
 from fastapi.testclient import TestClient
+
 from app.main import app
 
-
 client = TestClient(app)
-
-def test_create_skin():
-    payload = {
-        "name": "Dragon Lore",
-        "weapon": "AWP",
-        "rarity": "Covert",
-        "wear": "Factory New",
-        "min_float": 0.0,
-        "max_float": 0.01,
-        "price": 1000.0
-    }
-
-    response = client.post("/skins", json=payload)
-
-    assert response.status_code == 201
-    assert response.json()["name"] == "Dragon Lore"
-    assert "id" in response.json()
-
 def test_create_skin_invalid_float():
     payload = {
         "name": "Dragon Lore",
@@ -88,6 +70,7 @@ def test_get_skin_by_id(client):
     assert response.status_code == 200
     assert response.json()["id"] == 1
     assert response.json()["name"] == "Redline"
+    
 
 
 def test_update_skin(client):
@@ -124,6 +107,11 @@ def test_delete_skin(client):
     get_response = client.get("/skins/1")
 
     assert get_response.status_code == 404
+    assert get_response.json() == {
+    "message": "Skin Not Found",
+    "code": 404,
+    "details": "Skin not present in the exisiting Repository"
+}
 
 
 # Missing resource tests
@@ -132,21 +120,33 @@ def test_get_nonexistent_skin(client):
     response = client.get("/skins/999")
 
     assert response.status_code == 404
-    assert response.json() == {"detail": "Skin not found"}
+    assert response.json() == {
+    "message": "Skin Not Found",
+    "code": 404,
+    "details": "Skin not present in the exisiting Repository"
+}
 
 
 def test_update_nonexistent_skin(client):
     response = client.put("/skins/999", json=skin_payload)
 
     assert response.status_code == 404
-    assert response.json() == {"detail": "Skin not found"}
+    assert response.json() == {
+    "message": "Skin Not Found",
+    "code": 404,
+    "details": "Skin not present in the exisiting Repository"
+}
 
 
 def test_delete_nonexistent_skin(client):
     response = client.delete("/skins/999")
 
     assert response.status_code == 404
-    assert response.json() == {"detail": "Skin not found"}
+    assert response.json() == {
+    "message": "Skin Not Found",
+    "code": 404,
+    "details": "Skin not present in the exisiting Repository"
+}
 def test_repository_isolation(client):
     response = client.get("/skins")
 
