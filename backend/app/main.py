@@ -2,19 +2,23 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
 from app.modules.skins.router import router
-from app.modules.skins.service import SkinNotFoundError
+from app.modules.skins.exceptions import AppException 
 
 app = FastAPI()
 
 app.include_router(router)
 
 
-@app.exception_handler(SkinNotFoundError)
-async def skin_not_found_handler(
+@app.exception_handler(AppException)
+async def App_Handler(
     request: Request,
-    exc: SkinNotFoundError
+    exc:AppException
 ):
     return JSONResponse(
-        status_code=404,
-        content={"detail": "Skin not found"}
+       status_code= exc.error_code,
+       content={
+           "message" : exc.message,
+           "error_code":exc.error_code,
+           "details":exc.details
+       }
     )

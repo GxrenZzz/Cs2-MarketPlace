@@ -1,6 +1,5 @@
 # Virtual environments
-.venv/
-venv/
+.venv
 
 # Python cache
 __pycache__/
@@ -15,3 +14,7 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# Python type checking
+.mypy_cache/
+.pyright/

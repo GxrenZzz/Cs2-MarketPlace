@@ -1,5 +1,4 @@
-class SkinNotFoundError(Exception):
-  pass
+from .exceptions import SkinNotFoundError
 
 class SkinService:
   def __init__(self,repository):
