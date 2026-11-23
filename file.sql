@@ -1,0 +1,2 @@
+EXPLAIN SELECT * FROM skins
+WHERE price > 500;
