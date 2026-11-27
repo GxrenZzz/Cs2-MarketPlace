@@ -1,14 +1,27 @@
 from decimal import Decimal
 
-from sqlalchemy import ForeignKey, Integer, Numeric, String
+from sqlalchemy import ForeignKey, Integer, Numeric, String , CheckConstraint , UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
+
+# ck - check constraints
+# uq - unique constraint
+# pk - primary key 
+
 
 
 class Skin(Base):
 
   __tablename__ = "skins"
+
+  __table_args__ = (
+     UniqueConstraint("name","weapon" , name= "uq_skin_name_weapon"),
+     CheckConstraint("price >= 0 ",name="ck_skin_price"),
+     CheckConstraint("min_float BETWEEN 0 AND 1",name="ck_skin_min_float"),
+     CheckConstraint("max_float BETWEEN 0 AND 1",name="ck_skin_max_float"),
+     CheckConstraint("min_float <= max_float",name="ck_skin_float_range")
+  )
 
   id:Mapped[int] = mapped_column(Integer,primary_key=True)
 
@@ -34,6 +47,10 @@ class Skin(Base):
 class Listing(Base):
     
     __tablename__ = "listings"
+
+    __table_args__ = (
+       CheckConstraint("listing_price >=0",name="ck_listing_price"),
+    )
 
     id:Mapped[int] = mapped_column(Integer,primary_key=True)
     

@@ -14,7 +14,7 @@ def get_all_skins(
     ):
     return service.get_all_skins() 
 
-@router.get("/skins/{skin_id}",response_model=SkinRead)
+@router.get("/skins/{skgein_id}",response_model=SkinRead)
 def get_skin(
     skin_id:int,
     service : SkinService = Depends(get_skin_service)

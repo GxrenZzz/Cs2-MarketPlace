@@ -1,0 +1,242 @@
+[
+    {
+        "name": "Redline",
+        "weapon": "AK-47",
+        "rarity": "Classified",
+        "price": "15.50",
+        "min_float": "0.000",
+        "max_float": "0.500"
+    },
+    {
+        "name": "Dragon Lore",
+        "weapon": "AWP",
+        "rarity": "Covert",
+        "price": "52.50",
+        "min_float": "0.010",
+        "max_float": "0.600"
+    },
+    {
+        "name": "Howl",
+        "weapon": "M4A4",
+        "rarity": "Covert",
+        "price": "89.50",
+        "min_float": "0.020",
+        "max_float": "0.700"
+    },
+    {
+        "name": "Neon Rider",
+        "weapon": "AK-47",
+        "rarity": "Covert",
+        "price": "126.50",
+        "min_float": "0.030",
+        "max_float": "0.800"
+    },
+    {
+        "name": "Asiimov",
+        "weapon": "AWP",
+        "rarity": "Covert",
+        "price": "163.50",
+        "min_float": "0.040",
+        "max_float": "0.900"
+    },
+    {
+        "name": "Asiimov",
+        "weapon": "P250",
+        "rarity": "Classified",
+        "price": "200.50",
+        "min_float": "0.000",
+        "max_float": "1.000"
+    },
+    {
+        "name": "Night Stripe",
+        "weapon": "Desert Eagle",
+        "rarity": "Industrial Grade",
+        "price": "237.50",
+        "min_float": "0.010",
+        "max_float": "0.500"
+    },
+    {
+        "name": "Sunset Storm",
+        "weapon": "Desert Eagle",
+        "rarity": "Restricted",
+        "price": "274.50",
+        "min_float": "0.020",
+        "max_float": "0.600"
+    },
+    {
+        "name": "Nuclear Threat",
+        "weapon": "Tec-9",
+        "rarity": "Restricted",
+        "price": "311.50",
+        "min_float": "0.030",
+        "max_float": "0.700"
+    },
+    {
+        "name": "Nuclear Threat",
+        "weapon": "P250",
+        "rarity": "Restricted",
+        "price": "348.50",
+        "min_float": "0.040",
+        "max_float": "0.800"
+    },
+    {
+        "name": "Hazard Pay",
+        "weapon": "MP7",
+        "rarity": "Classified",
+        "price": "385.50",
+        "min_float": "0.000",
+        "max_float": "0.900"
+    },
+    {
+        "name": "Splash Jam",
+        "weapon": "SCAR-20",
+        "rarity": "Classified",
+        "price": "422.50",
+        "min_float": "0.010",
+        "max_float": "1.000"
+    },
+    {
+        "name": "Gamma Doppler",
+        "weapon": "Glock-18",
+        "rarity": "Covert",
+        "price": "459.50",
+        "min_float": "0.020",
+        "max_float": "0.500"
+    },
+    {
+        "name": "Water Elemental",
+        "weapon": "Glock-18",
+        "rarity": "Classified",
+        "price": "496.50",
+        "min_float": "0.030",
+        "max_float": "0.600"
+    },
+    {
+        "name": "Printstream",
+        "weapon": "USP-S",
+        "rarity": "Covert",
+        "price": "533.50",
+        "min_float": "0.040",
+        "max_float": "0.700"
+    },
+    {
+        "name": "Printstream",
+        "weapon": "M4A1-S",
+        "rarity": "Covert",
+        "price": "570.50",
+        "min_float": "0.000",
+        "max_float": "0.800"
+    },
+    {
+        "name": "Hyper Beast",
+        "weapon": "AWP",
+        "rarity": "Covert",
+        "price": "607.50",
+        "min_float": "0.010",
+        "max_float": "0.900"
+    },
+    {
+        "name": "Hyper Beast",
+        "weapon": "Nova",
+        "rarity": "Classified",
+        "price": "644.50",
+        "min_float": "0.020",
+        "max_float": "1.000"
+    },
+    {
+        "name": "Fade",
+        "weapon": "MAC-10",
+        "rarity": "Mil-Spec Grade",
+        "price": "681.50",
+        "min_float": "0.030",
+        "max_float": "0.500"
+    },
+    {
+        "name": "Fade",
+        "weapon": "Glock-18",
+        "rarity": "Restricted",
+        "price": "718.50",
+        "min_float": "0.040",
+        "max_float": "0.600"
+    },
+    {
+        "name": "Urban DDPAT",
+        "weapon": "UMP-45",
+        "rarity": "Consumer Grade",
+        "price": "755.50",
+        "min_float": "0.000",
+        "max_float": "0.700"
+    },
+    {
+        "name": "Sand Dune",
+        "weapon": "P250",
+        "rarity": "Consumer Grade",
+        "price": "792.50",
+        "min_float": "0.010",
+        "max_float": "0.800"
+    },
+    {
+        "name": "Forest DDPAT",
+        "weapon": "MP7",
+        "rarity": "Consumer Grade",
+        "price": "829.50",
+        "min_float": "0.020",
+        "max_float": "0.900"
+    },
+    {
+        "name": "Blue Steel",
+        "weapon": "XM1014",
+        "rarity": "Industrial Grade",
+        "price": "866.50",
+        "min_float": "0.030",
+        "max_float": "1.000"
+    },
+    {
+        "name": "Cyrex",
+        "weapon": "SG 553",
+        "rarity": "Classified",
+        "price": "903.50",
+        "min_float": "0.040",
+        "max_float": "0.500"
+    },
+    {
+        "name": "Atheris",
+        "weapon": "AWP",
+        "rarity": "Restricted",
+        "price": "940.50",
+        "min_float": "0.000",
+        "max_float": "0.600"
+    },
+    {
+        "name": "Bloodsport",
+        "weapon": "AK-47",
+        "rarity": "Covert",
+        "price": "977.50",
+        "min_float": "0.010",
+        "max_float": "0.700"
+    },
+    {
+        "name": "See Ya Later",
+        "weapon": "P250",
+        "rarity": "Covert",
+        "price": "1014.50",
+        "min_float": "0.020",
+        "max_float": "0.800"
+    },
+    {
+        "name": "Muertos",
+        "weapon": "P250",
+        "rarity": "Classified",
+        "price": "1051.50",
+        "min_float": "0.030",
+        "max_float": "0.900"
+    },
+    {
+        "name": "Pulse",
+        "weapon": "FAMAS",
+        "rarity": "Restricted",
+        "price": "1088.50",
+        "min_float": "0.040",
+        "max_float": "1.000"
+    }
+]
